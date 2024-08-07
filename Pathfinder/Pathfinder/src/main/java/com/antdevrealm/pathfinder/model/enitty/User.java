@@ -1,23 +1,44 @@
 package com.antdevrealm.pathfinder.model.enitty;
 
-import com.antdevrealm.pathfinder.model.enums.UserLevel;
+import com.antdevrealm.pathfinder.model.enums.Level;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
+    @Column(nullable = false, unique = true)
     private String username;
-
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "full_name")
+    @Column(name = "full_name", nullable = false)
     private String fullName;
 
+    private Integer age;
+    @Column(unique = true)
     private String email;
+
     @Enumerated(EnumType.STRING)
-    private UserLevel level;
+    private Level level;
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    private Set<Role> roles;
+
 
     public User() {
+
+    }
+
+    public User(int age) {
+        this.age = age;
+        this.roles = new HashSet<>();
     }
 
     public String getUsername() {
@@ -56,12 +77,21 @@ public class User extends BaseEntity {
         return this;
     }
 
-    public UserLevel getLevel() {
+    public Level getLevel() {
         return level;
     }
 
-    public User setLevel(UserLevel level) {
+    public User setLevel(Level level) {
         this.level = level;
+        return this;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public User setAge(int age) {
+        this.age = age;
         return this;
     }
 }

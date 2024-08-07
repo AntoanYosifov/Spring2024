@@ -1,5 +1,5 @@
 package com.antdevrealm.pathfinder.model.enums;
 
-public enum UserLevel {
+public enum Level {
     BEGINNER, INTERMEDIATE, ADVANCED
 }
