@@ -10,11 +10,11 @@ import java.util.Random;
 public class HomeController {
 
     @GetMapping("/")
-    public ModelAndView viewIndex(ModelAndView modelAndView){
+    public ModelAndView viewIndex(ModelAndView mnv){
         double sofiaTemp = new Random().nextDouble();
 
-        modelAndView.setViewName("index");
-        modelAndView.addObject("sofiaTemperature", sofiaTemp);
-        return modelAndView;
+        mnv.setViewName("index");
+        mnv.addObject("sofiaTemperature", sofiaTemp);
+        return mnv;
     }
 }
