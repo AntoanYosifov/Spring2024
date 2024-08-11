@@ -1,6 +1,6 @@
 package com.antdevrealm.mobilelele.service.impl;
 
-import com.antdevrealm.mobilelele.model.UserRegistrationDTO;
+import com.antdevrealm.mobilelele.model.dto.UserRegistrationDTO;
 import com.antdevrealm.mobilelele.service.UserService;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.antdevrealm.mobilelele.model;
+package com.antdevrealm.mobilelele.model.dto;
 
 public class UserRegistrationDTO {
     private String firstName;

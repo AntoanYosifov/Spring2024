@@ -1,6 +1,6 @@
 package com.antdevrealm.mobilelele.web;
 
-import com.antdevrealm.mobilelele.model.UserRegistrationDTO;
+import com.antdevrealm.mobilelele.model.dto.UserRegistrationDTO;
 import com.antdevrealm.mobilelele.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,14 +28,13 @@ public class UserController {
 
     @GetMapping("/login/model")
     public String login2(Model model){
-        model.addAttribute("message", "hello");
+
         return "index";
     }
 
     @GetMapping("/register")
     public ModelAndView register(ModelAndView modelAndView){
         modelAndView.setViewName("auth-register");
-        modelAndView.addObject("message", "hello");
         return modelAndView;
     }
 
@@ -43,7 +42,6 @@ public class UserController {
     public ModelAndView register(ModelAndView modelAndView, UserRegistrationDTO userRegistrationDTO){
         this.userService.registerUser(userRegistrationDTO);
         modelAndView.setViewName("index");
-        modelAndView.addObject("message", "hello");
         return modelAndView;
     }
 
